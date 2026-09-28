@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  coredns:
+    image: coredns/coredns:1.11.1
+    container_name: coredns
+    volumes:
+      - ./coredns:/etc/coredns:ro
+    command: ["-conf", "/etc/coredns/Corefile"]
+    networks:
+      labnet:
+        ipv4_address: 172.20.0.53
+    restart: unless-stopped
+
+  web:
+    image: nginx:alpine
+    container_name: web
+    volumes:
+      - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      labnet:
+        ipv4_address: 172.20.0.10
+    depends_on:
+      - coredns
+
+  client:
+    image: alpine:3.19
+    container_name: client
+    command: >
+      sh -c "
+        apk add -no-cache bind-tools curl &&
+        echo 'nameserver 172.20.0.53' > /etc/resolv.conf &&
+        sleep infinity
+      "
+    networks:
+      labnet:
+        ipv4_address: 172.20.0.100
+    depends_on:
+      - coredns
+      - web
+
+networks:
+  labnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
