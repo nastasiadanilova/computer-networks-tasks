@@ -1,3 +1,6 @@
+# Computer Networks Tasks
+
+Практические задания по компьютерным сетям: симуляторы протоколов, сетевые утилиты и инфраструктура на Docker.
 
 ## Структура репозитория
 
@@ -31,15 +34,32 @@
 | `task_26/` | Генератор и валидатор MAC-адресов | Python |
 | `task_27/` | Многопоточный HTTP-загрузчик с повторными попытками | Python |
 | `task_28/` | Симулятор QoS-очередей (Priority Queue / WFQ) | Python |
+| `task_29/` | Операции с IPv6-адресами | Python |
+| `task_30/` | Симулятор traceroute | Python |
+| `task_31/` | HTTP/1.1-клиент поверх raw-сокета | Python |
+| `task_32/` | SMTP-клиент поверх raw-сокета | Python |
+| `task_33/` | Разбор заголовков Ethernet/IP/TCP из hex-дампа | Python |
+| `task_34/` | Симулятор TCP-контроля перегрузки (Tahoe) | Python |
+| `task_35/` | Симулятор маршрутизации по алгоритму Дейкстры (OSPF-подобный) | Python |
+| `task_36/` | Симулятор протокола RIP (Distance Vector) | Python |
+| `task_37/` | Симулятор TLS-рукопожатия | Python |
+| `task_38/` | Симулятор MPLS-коммутации меток | Python |
+| `task_39/` | Симулятор SNMP MIB | Python |
+| `task_40/` | Анализатор топологии сети и остовное дерево | Python |
 | `task_41/` | Развертывание двухсегментной сети с маршрутизацией | Docker |
-| `task_42/` | NS + Web-сервер в изолированной сети | Docker |
+| `task_42/` | DNS + Web-сервер в изолированной сети | Docker |
 | `task_43/` | HAProxy + 3 бэкенда (балансировка нагрузки) | Docker |
 | `task_44/` | VPN-туннель WireGuard между двумя сетями | Docker |
 | `task_45/` | Полный стек мониторинга сети: Prometheus + Grafana + Node Exporter | Docker |
+| `task_46/` | Построитель и анализатор TCP-сегмента | Python |
+| `task_47/` | Симулятор распределенной хеш-таблицы (кольцо Chord) | Python |
+| `task_48/` | Симулятор протокола AODV (реактивная маршрутизация) | Python |
+| `task_49/` | Система обнаружения вторжений (IDS) | Python |
+| `task_50/` | Симулятор SDN-контроллера (OpenFlow-подобный) | Python |
 
 ## Быстрый старт
 
-### Python (задания 01-28)
+### Python (задания 01–40, 46–50)
 
 ```bash
 git clone https://github.com/nastasiadanilova/computer-networks-tasks
@@ -47,7 +67,7 @@ cd computer-networks-tasks/task_01
 python3 solution.py
 ```
 
-### Docker (задания 41-45)
+### Docker (задания 41–45)
 
 ```bash
 cd task_41
@@ -59,4 +79,4 @@ docker compose down
 ## Требования
 
 - Python 3.10+
-- Docker Engine 24+ и Docker Compose v2 (для заданий 41-45)
+- Docker Engine 24+ и Docker Compose v2 (для заданий 41–45)
